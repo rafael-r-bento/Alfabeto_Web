@@ -2,6 +2,8 @@
 
 O **Alfabeto Web** é uma aplicação desenvolvida no âmbito do projeto **Apps4Society**, projetada para promover a alfabetização de forma interativa e lúdica. Esta é uma versão Web do aplicativo [Alfabeto](https://github.com/a4s-ufpb/Alfabeto), criado originalmente por Francivaldo Napoleão. O projeto atual é orientado pela professora [Ayla Rebouças](https://github.com/ayladebora) e desenvolvido por [Anna Gabriela](https://github.com/AnnaGabrielaMS), estudante de Sistemas de Informação da UFPB - Campus IV - Rio Tinto.
 
+Observação: este _fork_ utiliza o framework **Angular** para compor a interface web.
+
 ## 🎯 Objetivo
 
 O objetivo da aplicação é auxiliar no processo de alfabetização das pessoas, em especial crianças, oferecendo atividades que estimulam o aprendizado de letras e palavras de maneira envolvente e acessível.

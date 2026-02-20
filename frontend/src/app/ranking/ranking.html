@@ -1,0 +1,37 @@
+<header>
+  <button title="VOLTAR" class="voltar" routerLink="/"><i class="fa-solid fa-arrow-left"></i></button>
+  <h2>RANKING</h2>
+</header>
+<main>
+  <div class="container">
+    <table class="tabela">
+      <tr>
+        <th>COLOCAÇÃO</th>
+        <th>NOME</th>
+        <th>PONTUAÇÃO</th>
+      </tr>
+      @for (jogador of ranking; track jogador) {
+      <tr>
+        <td>{{ $index + 1 }}°</td>
+        <td>{{ jogador.nome }}</td>
+        <td>{{ jogador.pontuacao }}</td>
+      </tr>
+      }
+    </table>
+  </div>
+  <button class="zerar-ranking" (click)="mostrarConfirmacaoZerarRanking()">Limpar Ranking</button>
+
+  @if (exibeConfirmacaoZerarRanking()) {
+  <div class="confirmacao-zerar-ranking">
+    <p>Tem certeza que deseja limpar o ranking?</p>
+    <button class="confirmar" (click)="zerarRanking()">CONFIRMAR</button>
+    <button class="cancelar" (click)="esconderConfirmacaoZerarRanking()">CANCELAR</button>
+  </div>
+  }
+
+  @if (exibeMensagemSucesso()) {
+  <div class="mensagem-sucesso">
+    <p id="sucesso">{{ mensagemParagrafoConfirmacao }}</p>
+  </div>
+  }
+</main>

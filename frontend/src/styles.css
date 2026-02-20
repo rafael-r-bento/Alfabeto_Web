@@ -1,0 +1,90 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+    position: relative;
+    background-color: rgba(179, 176, 176, 0.5);
+    box-shadow: 3px 3px 3px rgb(67, 66, 66);
+    margin-bottom: 2rem;
+    max-width: 100vw;
+}
+
+header h2{
+    font-size: 2rem;
+    flex-grow: 1;
+    text-align: center;
+}
+
+body{
+    background-image: linear-gradient(rgb(9, 156, 75), rgb(8, 165, 134));
+    min-height: 100vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+@font-face {
+    font-family: 'Maria Lucia';
+    src: url('../public/Maria_lucia.ttf') format('truetype');
+    font-weight: normal;
+}
+
+.fonte-cursiva {
+    font-family: 'Maria Lucia', cursive;
+}
+
+.voltar {
+    width: 45px;
+    height: 45px;
+    color: rgb(12, 192, 93);
+    background-color: rgb(255, 255, 255);
+    border-radius: 40px;
+    box-shadow: 2px 2px 2px rgb(67, 66, 66);
+    cursor: pointer;
+    font-size: 32px;
+    border: none;
+}
+
+.voltar:active{
+    box-shadow: 0 5px rgb(95, 95, 94);
+    transform: translateY(4px);
+}
+
+.voltar:hover{
+    background-color: rgb(10, 149, 72);
+    transform: scale(1.02);
+    color: rgb(255, 255, 255);
+}
+
+.a4s{
+    width: 45px;
+    height: 45px;
+    background-color: rgba(207, 207, 207, 0.5);
+    border-radius: 40px;
+    box-shadow: 2px 2px 2px rgb(67, 66, 66);
+    cursor: pointer;
+}
+
+.a4s:active {
+    box-shadow: 0 5px rgb(95, 95, 94);
+    transform: translateY(4px);
+}
+
+.a4s:hover {
+    background-color: rgb(255, 255, 255);
+    transform: scale(1.02);
+    color: rgb(9, 156, 75);
+}
+
+@media(max-width: 600px){
+    header h2{
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,18 @@
+<main>
+  <h2>PONTUAÇÃO</h2>
+
+  <div class="resultado">
+    <img [src]="imagemPontuacao" id="imagem-pontuacao" alt="Imagem da pontuação">
+    <p id="mensagem-resultado">{{mensagemPontuacao}}</p>
+    <p id="pontuacao">VOCÊ OBTEVE {{pontuacao}}% DE ACERTO.</p>
+    <p id="jogador-ranking">{{mensagemJogadorRanking}}</p>
+  </div>
+
+  <div class="botoes-container">
+    <button class="botao ranking" title="RANKING" routerLink="/ranking"><i class="fa-solid fa-trophy"></i></button>
+    <div class="botoes-inferiores">
+      <button class="botao" title="TEMAS" routerLink="/contextos"><i class="fa-solid fa-house"></i></button>
+      <button class="botao" title="REPETIR" (click)="repetirDesafio()"><i class="fa-solid fa-repeat"></i></button>
+    </div>
+  </div>
+</main>

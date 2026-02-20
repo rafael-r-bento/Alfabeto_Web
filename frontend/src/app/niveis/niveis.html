@@ -1,0 +1,20 @@
+<header>
+  <button class="voltar" title="VOLTAR" routerLink="/contextos"><i class="fa-solid fa-arrow-left"></i></button>
+  <h2>NÍVEIS</h2>
+</header>
+<main>
+  <div class="flex-container">
+    <a routerLink="/jogo" class="box" (click)="escolherTeclado('vogais')">
+      <img src="/vogais.png" alt="Vogais">
+      <h3>VOGAIS</h3>
+    </a>
+    <a routerLink="/jogo" class="box" (click)="escolherTeclado('consoantes')">
+      <img src="/consoantes.png" alt="Consoantes">
+      <h3>CONSOANTES</h3>
+    </a>
+    <a routerLink="/jogo" class="box" (click)="escolherTeclado('alfabeto')">
+      <img src="/alfabeto.png" alt="Alfabeto">
+      <h3>ALFABETO</h3>
+    </a>
+  </div>
+</main>
