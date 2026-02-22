@@ -1,6 +1,14 @@
 version: '3.5'
 
 services:
+  backend:
+    build: ./backend
+    container_name: backend
+    ports:
+      - "8080:8080"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    restart: always
   alfabeto:
     container_name: alfabeto
     build: 
@@ -8,4 +16,4 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - 1000:80
+      - "1000:80"

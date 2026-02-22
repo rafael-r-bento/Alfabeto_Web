@@ -5,15 +5,20 @@ import {FormGroup, FormControl, ReactiveFormsModule, Validators} from '@angular/
 import { Router } from '@angular/router';
 import { timer } from 'rxjs';
 import { Configuracao } from 'src/app/services/configuracao';
+import { environment } from 'src/environments/environment';
 
-interface Palavra {
-  nome: string;
-  imagem: string;
+interface IPalavraImagem {
+  palavraGerada: string;
+  imagemUrl: string;
+}
+
+interface IGeradorResposta {
+  categoria: string;
+  itens: IPalavraImagem[];
 }
 
 interface Contexto {
   nome: string;
-  palavras: Palavra[];
 }
 
 @Component({
@@ -65,6 +70,21 @@ export class Jogo implements OnInit {
     nomeJogador: new FormControl('', [Validators.required])
   });
 
+  geradorResposta: IGeradorResposta = {
+    categoria: '',
+    itens: []
+  };
+
+  contextos: Contexto[] = [
+    { nome: "cores" },
+    { nome: "frutas" },
+    { nome: "brinquedos" },
+    { nome: "animais" },
+    { nome: "países" },
+    { nome: "objetos" },
+    { nome: "corpo humano" }
+  ]
+
   ngOnInit(): void {
     if (!this.contextoSelecionado) {
       alert('Nenhum contexto foi selecionado');
@@ -72,39 +92,35 @@ export class Jogo implements OnInit {
       return;
     }
 
+    const contextoAtual = this.contextos.find(
+      c => c.nome.toLowerCase() === this.contextoSelecionado!.toLowerCase()
+    );
+
+    if (!contextoAtual) return;
+
+    this.temaAtual = contextoAtual.nome;
+
+    this.http.get<IGeradorResposta>(
+      `${environment.apiUrl}/gerador?categoria=${this.temaAtual}`
+    ).subscribe(data => {
+      this.geradorResposta = data;
+    });
+
     this.iniciarDesafio();
   }
 
   iniciarDesafio() {
-    this.http.get<any>('/palavras.json').subscribe(data => {
-      const contextos: Contexto[] = data.contextos;
+    this.palavraSecreta = this.geradorResposta.itens[this.quantidadeDesafiosJogados].palavraGerada;
+    this.imagemAtual.set(this.geradorResposta.itens[this.quantidadeDesafiosJogados].imagemUrl);
+    console.log(this.imagemAtual);
 
-      const contextoAtual = contextos.find(
-        c => c.nome.toLowerCase() === this.contextoSelecionado!.toLowerCase()
-      );
+    this.palavrasSorteadas.push(this.palavraSecreta);
 
-      if (!contextoAtual) return;
+    this.palavraAtual = Array(this.palavraSecreta.length).fill('_');
 
-      this.temaAtual = contextoAtual.nome;
+    console.log("Palavra secreta sorteada:", this.palavraSecreta);
 
-      let palavraSorteada: Palavra;
-
-      do {
-        palavraSorteada = contextoAtual.palavras[Math.floor(Math.random() * contextoAtual.palavras.length)]
-      } while (this.palavrasSorteadas.includes(palavraSorteada.nome));
-
-      this.palavraSecreta = palavraSorteada.nome;
-      this.imagemAtual.set(palavraSorteada.imagem);
-      console.log(this.imagemAtual);
-
-      this.palavrasSorteadas.push(this.palavraSecreta);
-
-      this.palavraAtual = Array(this.palavraSecreta.length).fill('_');
-
-      console.log("Palavra secreta sorteada:", this.palavraSecreta);
-
-      this.exibirPalavra();
-    });
+    this.exibirPalavra();
   }
 
   exibirPalavra() {
