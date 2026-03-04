@@ -104,9 +104,9 @@ export class Jogo implements OnInit {
       `${environment.apiUrl}/gerador?categoria=${this.temaAtual}`
     ).subscribe(data => {
       this.geradorResposta = data;
+      console.log(this.geradorResposta);
+      this.iniciarDesafio();
     });
-
-    this.iniciarDesafio();
   }
 
   iniciarDesafio() {
