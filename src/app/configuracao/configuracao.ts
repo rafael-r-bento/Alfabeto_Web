@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { ConfiguracaoService } from '../services/configuracao-service'
 
 @Component({
   selector: 'app-configuracao',
@@ -12,6 +13,7 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class Configuracao implements OnInit {
   private router = inject(Router);
+  private readonly configuracaoService = inject(ConfiguracaoService);
 
   letras = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z";
 
@@ -23,8 +25,8 @@ export class Configuracao implements OnInit {
   }
 
   salvarConfiguracoes() {
-    localStorage.setItem('letra', this.tamanhoLetra);
-    localStorage.setItem('tipo', this.tipoLetra);
+    this.configuracaoService.setItem('letra', this.tamanhoLetra);
+    this.configuracaoService.setItem('tipo', this.tipoLetra);
 
     this.aplicarConfiguracoes();
 
@@ -32,8 +34,8 @@ export class Configuracao implements OnInit {
   }
 
   aplicarConfiguracoes() {
-    const tamanhoLetra = localStorage.getItem('letra');
-    const tipoLetra = localStorage.getItem('tipo');
+    const tamanhoLetra = this.configuracaoService.getItem('letra');
+    const tipoLetra = this.configuracaoService.getItem('tipo');
 
     if (tamanhoLetra === 'maiuscula') {
       this.letras = this.letras.toUpperCase();

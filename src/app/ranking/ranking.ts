@@ -1,6 +1,7 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { timer } from 'rxjs';
+import { ConfiguracaoService } from '../services/configuracao-service';
 
 interface Jogador {
   nome: string;
@@ -14,6 +15,7 @@ interface Jogador {
   styleUrl: './ranking.css',
 })
 export class Ranking implements OnInit{
+  private readonly configuracaoService = inject(ConfiguracaoService);
 
   ranking: Jogador[] = [];
   exibeConfirmacaoZerarRanking = signal(false);
@@ -21,7 +23,7 @@ export class Ranking implements OnInit{
   exibeMensagemSucesso = signal(false);
 
   ngOnInit() {
-    this.ranking = JSON.parse(localStorage.getItem("ranking") || '[]');
+    this.ranking = JSON.parse(this.configuracaoService.getItem("ranking") || '[]');
     this.atualizarRankingNaPagina();
   }
 
@@ -33,7 +35,7 @@ export class Ranking implements OnInit{
   }
 
   zerarRanking() {
-    localStorage.removeItem("ranking");
+    this.configuracaoService.removeItem("ranking");
     this.ranking = [];
     this.atualizarRankingNaPagina();
     this.esconderConfirmacaoZerarRanking();

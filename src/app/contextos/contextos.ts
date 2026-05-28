@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Configuracao } from 'src/app/services/configuracao';
+import { ConfiguracaoService } from 'src/app/services/configuracao-service';
 
 @Component({
   selector: 'app-contextos',
@@ -9,9 +9,9 @@ import { Configuracao } from 'src/app/services/configuracao';
   styleUrl: './contextos.css',
 })
 export class Contextos {
-  private configuracaoService = inject(Configuracao);
+  private configuracaoService = inject(ConfiguracaoService);
 
   escolherContexto(contexto: string){
-    localStorage.setItem('contextoSelecionado', contexto);
+    this.configuracaoService.setItem('contextoSelecionado', contexto);
   }
 }

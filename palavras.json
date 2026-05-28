@@ -1,0 +1,447 @@
+{
+  "contextos": [
+    {
+      "nome": "cores",
+      "palavras": [
+        {
+          "nome": "amarelo",
+          "imagem": "images/cores/amarelo.webp"
+        },
+        {
+          "nome": "azul",
+          "imagem": "images/cores/azul.webp"
+        },
+        {
+          "nome": "bege",
+          "imagem": "images/cores/bege.webp"
+        },
+        {
+          "nome": "branco",
+          "imagem": "images/cores/branco.webp"
+        },
+        {
+          "nome": "cinza",
+          "imagem": "images/cores/cinza.webp"
+        },
+        {
+          "nome": "dourado",
+          "imagem": "images/cores/dourado.webp"
+        },
+        {
+          "nome": "laranja",
+          "imagem": "images/cores/laranja.webp"
+        },
+        {
+          "nome": "marrom",
+          "imagem": "images/cores/marrom.webp"
+        },
+        {
+          "nome": "prata",
+          "imagem": "images/cores/prata.webp"
+        },
+        {
+          "nome": "preto",
+          "imagem": "images/cores/preto.webp"
+        },
+        {
+          "nome": "rosa",
+          "imagem": "images/cores/rosa.webp"
+        },
+        {
+          "nome": "roxo",
+          "imagem": "images/cores/roxo.webp"
+        },
+        {
+          "nome": "verde",
+          "imagem": "images/cores/verde.webp"
+        },
+        {
+          "nome": "vermelho",
+          "imagem": "images/cores/vermelho.webp"
+        }
+      ]
+    },
+    {
+      "nome": "frutas",
+      "palavras": [
+        {
+          "nome": "abacate",
+          "imagem": "images/frutas/abacate.webp"
+        },
+        {
+          "nome": "abacaxi",
+          "imagem": "images/frutas/abacaxi.webp"
+        },
+        {
+          "nome": "banana",
+          "imagem": "images/frutas/banana.webp"
+        },
+        {
+          "nome": "caju",
+          "imagem": "images/frutas/caju.webp"
+        },
+        {
+          "nome": "cereja",
+          "imagem": "images/frutas/cereja.webp"
+        },
+        {
+          "nome": "coco",
+          "imagem": "images/frutas/coco.webp"
+        },
+        {
+          "nome": "laranja",
+          "imagem": "images/frutas/laranja.webp"
+        },
+        {
+          "nome": "limão",
+          "imagem": "images/frutas/limao.webp"
+        },
+        {
+          "nome": "maçã",
+          "imagem": "images/frutas/maca.webp"
+        },
+        {
+          "nome": "mamão",
+          "imagem": "images/frutas/mamao.webp"
+        },
+        {
+          "nome": "manga",
+          "imagem": "images/frutas/manga.webp"
+        },
+        {
+          "nome": "melancia",
+          "imagem": "images/frutas/melancia.webp"
+        },
+        {
+          "nome": "morango",
+          "imagem": "images/frutas/morango.webp"
+        },
+        {
+          "nome": "pera",
+          "imagem": "images/frutas/pera.webp"
+        },
+        {
+          "nome": "uva",
+          "imagem": "images/frutas/uva.webp"
+        }
+      ]
+    },
+    {
+      "nome": "brinquedos",
+      "palavras": [
+        {
+          "nome": "avião",
+          "imagem": "images/brinquedos/aviao.webp"
+        },
+        {
+          "nome": "balanço",
+          "imagem": "images/brinquedos/balanco.webp"
+        },
+        {
+          "nome": "bicicleta",
+          "imagem": "images/brinquedos/bicicleta.webp"
+        },
+        {
+          "nome": "bola",
+          "imagem": "images/brinquedos/bola.webp"
+        },
+        {
+          "nome": "boliche",
+          "imagem": "images/brinquedos/boliche.webp"
+        },
+        {
+          "nome": "boneca",
+          "imagem": "images/brinquedos/boneca.webp"
+        },
+        {
+          "nome": "carro",
+          "imagem": "images/brinquedos/carro.webp"
+        },
+        {
+          "nome": "cavalo",
+          "imagem": "images/brinquedos/cavalo.webp"
+        },
+        {
+          "nome": "cubo",
+          "imagem": "images/brinquedos/cubo.webp"
+        },
+        {
+          "nome": "gangorra",
+          "imagem": "images/brinquedos/gangorra.webp"
+        },
+        {
+          "nome": "moto",
+          "imagem": "images/brinquedos/moto.webp"
+        },
+        {
+          "nome": "pipa",
+          "imagem": "images/brinquedos/pipa.webp"
+        },
+        {
+          "nome": "robô",
+          "imagem": "images/brinquedos/robo.webp"
+        },
+        {
+          "nome": "tambor",
+          "imagem": "images/brinquedos/tambor.webp"
+        },
+        {
+          "nome": "trem",
+          "imagem": "images/brinquedos/trem.webp"
+        },
+        {
+          "nome": "urso",
+          "imagem": "images/brinquedos/urso.webp"
+        }
+      ]
+    },
+    {
+      "nome": "animais",
+      "palavras": [
+        {
+          "nome": "cachorro",
+          "imagem": "images/animais/cachorro.webp"
+        },
+        {
+          "nome": "cavalo",
+          "imagem": "images/animais/cavalo.webp"
+        },
+        {
+          "nome": "elefante",
+          "imagem": "images/animais/elefante.webp"
+        },
+        {
+          "nome": "gato",
+          "imagem": "images/animais/gato.webp"
+        },
+        {
+          "nome": "girafa",
+          "imagem": "images/animais/girafa.webp"
+        },
+        {
+          "nome": "leão",
+          "imagem": "images/animais/leao.webp"
+        },
+        {
+          "nome": "ovelha",
+          "imagem": "images/animais/ovelha.webp"
+        },
+        {
+          "nome": "pavão",
+          "imagem": "images/animais/pavao.webp"
+        },
+        {
+          "nome": "peixe",
+          "imagem": "images/animais/peixe.webp"
+        },
+        {
+          "nome": "preguiça",
+          "imagem": "images/animais/preguica.webp"
+        },
+        {
+          "nome": "rato",
+          "imagem": "images/animais/rato.webp"
+        },
+        {
+          "nome": "rinoceronte",
+          "imagem": "images/animais/rinoceronte.webp"
+        },
+        {
+          "nome": "tigre",
+          "imagem": "images/animais/tigre.webp"
+        },
+        {
+          "nome": "touro",
+          "imagem": "images/animais/touro.webp"
+        },
+        {
+          "nome": "zebra",
+          "imagem": "images/animais/zebra.webp"
+        }
+      ]
+    },
+    {
+      "nome": "paises",
+      "palavras": [
+        {
+          "nome": "alemanha",
+          "imagem": "images/paises/alemanha.webp"
+        },
+        {
+          "nome": "austrália",
+          "imagem": "images/paises/australia.webp"
+        },
+        {
+          "nome": "brasil",
+          "imagem": "images/paises/brasil.webp"
+        },
+        {
+          "nome": "canadá",
+          "imagem": "images/paises/canada.webp"
+        },
+        {
+          "nome": "china",
+          "imagem": "images/paises/china.webp"
+        },
+        {
+          "nome": "colômbia",
+          "imagem": "images/paises/colombia.webp"
+        },
+        {
+          "nome": "coreia",
+          "imagem": "images/paises/coreia.webp"
+        },
+        {
+          "nome": "cuba",
+          "imagem": "images/paises/cuba.webp"
+        },
+        {
+          "nome": "frança",
+          "imagem": "images/paises/franca.webp"
+        },
+        {
+          "nome": "holanda",
+          "imagem": "images/paises/holanda.webp"
+        },
+        {
+          "nome": "itália",
+          "imagem": "images/paises/italia.webp"
+        },
+        {
+          "nome": "japão",
+          "imagem": "images/paises/japao.webp"
+        },
+        {
+          "nome": "rússia",
+          "imagem": "images/paises/russia.webp"
+        }
+      ]
+    },
+    {
+      "nome": "objetos",
+      "palavras": [
+        {
+          "nome": "celular",
+          "imagem": "images/objetos/celular.webp"
+        },
+        {
+          "nome": "chave",
+          "imagem": "images/objetos/chave.webp"
+        },
+        {
+          "nome": "livro",
+          "imagem": "images/objetos/livro.webp"
+        },
+        {
+          "nome": "lupa",
+          "imagem": "images/objetos/lupa.webp"
+        },
+        {
+          "nome": "martelo",
+          "imagem": "images/objetos/martelo.webp"
+        },
+        {
+          "nome": "mesa",
+          "imagem": "images/objetos/mesa.webp"
+        },
+        {
+          "nome": "óculos",
+          "imagem": "images/objetos/oculos.webp"
+        },
+        {
+          "nome": "pilha",
+          "imagem": "images/objetos/pilha.webp"
+        },
+        {
+          "nome": "relógio",
+          "imagem": "images/objetos/relogio.webp"
+        },
+        {
+          "nome": "telefone",
+          "imagem": "images/objetos/telefone.webp"
+        },
+        {
+          "nome": "televisão",
+          "imagem": "images/objetos/televisao.webp"
+        },
+        {
+          "nome": "vaso",
+          "imagem": "images/objetos/vaso.webp"
+        },
+        {
+          "nome": "xícara",
+          "imagem": "images/objetos/xicara.webp"
+        }
+      ]
+    },
+    {
+      "nome": "corpo humano",
+      "palavras": [
+        {
+          "nome": "boca",
+          "imagem": "images/partesCorpo/boca.webp"
+        },
+        {
+          "nome": "braço",
+          "imagem": "images/partesCorpo/braco.webp"
+        },
+        {
+          "nome": "cabeça",
+          "imagem": "images/partesCorpo/cabeca.webp"
+        },
+        {
+          "nome": "calcanhar",
+          "imagem": "images/partesCorpo/calcanhar.webp"
+        },
+        {
+          "nome": "cérebro",
+          "imagem": "images/partesCorpo/cerebro.webp"
+        },
+        {
+          "nome": "coração",
+          "imagem": "images/partesCorpo/coracao.webp"
+        },
+        {
+          "nome": "cotovelo",
+          "imagem": "images/partesCorpo/cotovelo.webp"
+        },
+        {
+          "nome": "joelho",
+          "imagem": "images/partesCorpo/joelho.webp"
+        },
+        {
+          "nome": "língua",
+          "imagem": "images/partesCorpo/lingua.webp"
+        },
+        {
+          "nome": "mão",
+          "imagem": "images/partesCorpo/mao.webp"
+        },
+        {
+          "nome": "nariz",
+          "imagem": "images/partesCorpo/nariz.webp"
+        },
+        {
+          "nome": "olho",
+          "imagem": "images/partesCorpo/olho.webp"
+        },
+        {
+          "nome": "orelha",
+          "imagem": "images/partesCorpo/orelha.webp"
+        },
+        {
+          "nome": "pé",
+          "imagem": "images/partesCorpo/pe.webp"
+        },
+        {
+          "nome": "perna",
+          "imagem": "images/partesCorpo/perna.webp"
+        },
+        {
+          "nome": "pulmão",
+          "imagem": "images/partesCorpo/pulmao.webp"
+        }
+      ]
+    }
+  ]
+}

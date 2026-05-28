@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Configuracao } from 'src/app/services/configuracao';
+import { ConfiguracaoService } from 'src/app/services/configuracao-service';
 
 @Component({
   selector: 'app-niveis',
@@ -9,9 +9,9 @@ import { Configuracao } from 'src/app/services/configuracao';
   styleUrl: './niveis.css',
 })
 export class Niveis {
-  private configuracaoService = inject(Configuracao);
+  private configuracaoService = inject(ConfiguracaoService);
 
   escolherTeclado(teclado: string) {
-    localStorage.setItem('tecladoEscolhido', teclado);
+    this.configuracaoService.setItem('tecladoEscolhido', teclado);
   }
 }

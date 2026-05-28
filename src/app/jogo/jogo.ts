@@ -1,19 +1,18 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import {FormGroup, FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { timer } from 'rxjs';
-import { Configuracao } from 'src/app/services/configuracao';
-import { environment } from 'src/environments/environment';
+import { ConfiguracaoService } from 'src/app/services/configuracao-service';
 
 interface IPalavraImagem {
-  palavraGerada: string;
+  palavra: string;
   imagemUrl: string;
 }
 
-interface IGeradorResposta {
-  categoria: string;
+interface IResposta {
+  contexto: string;
   itens: IPalavraImagem[];
 }
 
@@ -28,12 +27,13 @@ interface Contexto {
   styleUrl: './jogo.css',
 })
 export class Jogo implements OnInit {
+  private readonly platformId: Object = inject(PLATFORM_ID);
   private router = inject(Router);
   private http = inject(HttpClient);
-  private configuracaoService = inject(Configuracao);
+  private configuracaoService = inject(ConfiguracaoService);
 
-  tecladoEscolhido = localStorage.getItem('tecladoEscolhido');
-  contextoSelecionado = localStorage.getItem('contextoSelecionado');
+  tecladoEscolhido = this.configuracaoService.getItem('tecladoEscolhido');
+  contextoSelecionado = this.configuracaoService.getItem('contextoSelecionado');
 
   quantidadeDesafios = 5;
   quantidadeDesafiosJogados = 0;
@@ -70,8 +70,8 @@ export class Jogo implements OnInit {
     nomeJogador: new FormControl('', [Validators.required])
   });
 
-  geradorResposta: IGeradorResposta = {
-    categoria: '',
+  resposta: IResposta = {
+    contexto: '',
     itens: []
   };
 
@@ -80,14 +80,16 @@ export class Jogo implements OnInit {
     { nome: "frutas" },
     { nome: "brinquedos" },
     { nome: "animais" },
-    { nome: "países" },
+    { nome: "paises" },
     { nome: "objetos" },
     { nome: "corpo humano" }
   ]
 
   ngOnInit(): void {
     if (!this.contextoSelecionado) {
-      alert('Nenhum contexto foi selecionado');
+      if (isPlatformBrowser(this.platformId)) {
+        alert('Nenhum contexto foi selecionado');
+      }
       this.router.navigate(['/contextos']);
       return;
     }
@@ -100,18 +102,18 @@ export class Jogo implements OnInit {
 
     this.temaAtual = contextoAtual.nome;
 
-    this.http.get<IGeradorResposta>(
-      `${environment.apiUrl}/gerador?categoria=${this.temaAtual}`
+    this.http.get<IResposta>(
+      `/api/palavras?contexto=${this.temaAtual}`
     ).subscribe(data => {
-      this.geradorResposta = data;
-      console.log(this.geradorResposta);
+      this.resposta = data;
+      console.log(this.resposta);
       this.iniciarDesafio();
     });
   }
 
   iniciarDesafio() {
-    this.palavraSecreta = this.geradorResposta.itens[this.quantidadeDesafiosJogados].palavraGerada;
-    this.imagemAtual.set(this.geradorResposta.itens[this.quantidadeDesafiosJogados].imagemUrl);
+    this.palavraSecreta = this.resposta.itens[this.quantidadeDesafiosJogados].palavra;
+    this.imagemAtual.set(this.resposta.itens[this.quantidadeDesafiosJogados].imagemUrl);
     console.log(this.imagemAtual);
 
     this.palavrasSorteadas.push(this.palavraSecreta);
@@ -207,7 +209,7 @@ export class Jogo implements OnInit {
   finalizarPartida() {
     this.desabilitarBotoes();
     this.exibirPontuacao();
-    this.pontuacao = parseInt(localStorage.getItem('pontuacao') || '0', 10);
+    this.pontuacao = parseInt(this.configuracaoService.getItem('pontuacao') || '0', 10);
     this.exibeCaixaNome.set(true);
   }
 
@@ -223,7 +225,7 @@ export class Jogo implements OnInit {
   exibirPontuacao() {
     const quantidadeAcertos = this.quantidadeDeTentativas - this.contadorDeErros;
     let pontuacao = (quantidadeAcertos / this.quantidadeDeTentativas) * 100;
-    localStorage.setItem('pontuacao', pontuacao.toFixed(2));
+    this.configuracaoService.setItem('pontuacao', pontuacao.toFixed(2));
   }
 
   exibirOcultarBotoes() {
@@ -264,19 +266,19 @@ export class Jogo implements OnInit {
   }
 
   imagemErro(event: any) {
-    event.target.src = '/error.png';
+    event.target.src = '/error.webp';
   }
 
   onSubmit() {
     const nomeJogador = this.pontuacaoForm.get('nomeJogador')?.value || '';
-    localStorage.setItem('nome-jogador', nomeJogador);
+    this.configuracaoService.setItem('nome-jogador', nomeJogador);
 
     if (nomeJogador) {
-      let ranking = JSON.parse(localStorage.getItem("ranking") || '[]');
+      let ranking = JSON.parse(this.configuracaoService.getItem("ranking") || '[]');
       ranking.push({ nome: nomeJogador, pontuacao: this.pontuacao });
       ranking.sort((a: any, b: any) => b.pontuacao - a.pontuacao);
       ranking = ranking.slice(0, 5);
-      localStorage.setItem("ranking", JSON.stringify(ranking));
+      this.configuracaoService.setItem("ranking", JSON.stringify(ranking));
       this.exibeCaixaNome.set(false);
       timer(1000).subscribe(() => {
         this.router.navigate(['/pontuacao']);
